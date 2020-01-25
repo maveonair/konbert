@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Konbert.UI", "Konbert.UI\Konbert.UI.csproj", "{5220AE80-C136-4A58-A3B0-9619C7CC2E71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Konbert.AudioProcessing", "Konbert.AudioProcessing\Konbert.AudioProcessing.csproj", "{199143EE-BBD4-43AA-99F5-7AF0559A2D70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Konbert.AudioProcessing.Tests", "Konbert.AudioProcessing.Tests\Konbert.AudioProcessing.Tests.csproj", "{D03BD482-7A00-40F3-B336-6D1C4152D640}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5220AE80-C136-4A58-A3B0-9619C7CC2E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5220AE80-C136-4A58-A3B0-9619C7CC2E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5220AE80-C136-4A58-A3B0-9619C7CC2E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5220AE80-C136-4A58-A3B0-9619C7CC2E71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{199143EE-BBD4-43AA-99F5-7AF0559A2D70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{199143EE-BBD4-43AA-99F5-7AF0559A2D70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{199143EE-BBD4-43AA-99F5-7AF0559A2D70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{199143EE-BBD4-43AA-99F5-7AF0559A2D70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03BD482-7A00-40F3-B336-6D1C4152D640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03BD482-7A00-40F3-B336-6D1C4152D640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03BD482-7A00-40F3-B336-6D1C4152D640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03BD482-7A00-40F3-B336-6D1C4152D640}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E3EA624-FCD5-446A-A223-F6F7C358705F}
+	EndGlobalSection
+EndGlobal
