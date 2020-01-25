@@ -6,6 +6,10 @@
 
 The [Hörbert](https://www.hoerbert.com/) audio player requires a specific WAV format (32khz, 16bit, Mono) and file name (0.WAV, 1.WAV, ...) to play an audio file on this device. This Windows Utility uses [NAudio](https://github.com/naudio/NAudio) to convert audio files (e.g. mp3, m4a, wma, etc.) to the required audio format.
 
+## Install
+
+Download latest release from here: [https://github.com/maveonair/konbert/releases/latest/download/konbert_win_x64.zip](https://github.com/maveonair/konbert/releases/latest/download/konbert_win_x64.zip)
+
 ## Usage
 
 1. Start Konbert
