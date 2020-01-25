@@ -25,7 +25,7 @@ namespace Konbert.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string AudioFilesFilter = "Audio Files|*.mp3;*.m4a";
+        private const string AudioFilesFilter = "Audio Files|*.mp3;*.m4a;*.wma";
 
         private readonly AudioProcessor audioProcessor;
 
@@ -93,7 +93,7 @@ namespace Konbert.UI
 
         private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Version 0.0.1", "About Konbert");
+            MessageBox.Show("Version 0.1.0", "About Konbert");
         }
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
@@ -107,6 +107,8 @@ namespace Konbert.UI
 
             ProgressBar.Visibility = Visibility.Visible;
             ProgressBar.IsIndeterminate = true;
+
+            ProcessingLabel.Content = "";
 
             var folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
 
@@ -123,6 +125,7 @@ namespace Konbert.UI
                 {
                     ToggleButtonsEnablement(true);
 
+                    ProgressBar.Value = 0;
                     ProgressBar.Visibility = Visibility.Collapsed;
 
                     ProcessingLabel.Content = "Converting finished";

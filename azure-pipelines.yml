@@ -1,0 +1,66 @@
+# .NET Desktop
+# Build and run tests for .NET Desktop or Windows classic desktop solutions.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
+
+trigger:
+- master
+
+pr:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: false
+    zipAfterPublish: false
+    arguments: '/p:CopyOutputSymbolsToPublishDirectory=false --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/win-x64'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: win-x64'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  inputs:
+    configuration: '$(buildConfiguration)'
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/win-x64/'
+
+- task: ArchiveFiles@2
+  displayName: Zip Win x64 artifacts
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/win-x64/Konbert.exe'
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/konbert_win_x64.zip'
+    replaceExistingArchive: true
+
+- task: GithubRelease@0
+  displayName: 'Create GitHub Release'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  inputs:
+    gitHubConnection: github.com_maveonair
+    repositoryName: maveonair/konbert
+    tagSource: manual
+    tag: $(Build.BuildNumber)
+    assets: '$(Build.ArtifactStagingDirectory)/konbert_win_x64.zip'
